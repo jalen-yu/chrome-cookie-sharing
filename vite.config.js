@@ -5,7 +5,7 @@ import path from 'path'
 export default defineConfig({
     plugins: [Vue()],
     build: {
-        outDir: 'chrome-cookies-sharing-plugin',
+        outDir: 'chrome-cookie-sharing-plugin',
         rollupOptions: {
             input: {
                 background: path.resolve(__dirname, 'background.js'),
