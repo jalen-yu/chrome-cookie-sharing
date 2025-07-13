@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Cookie携带工具",
+    "version": "1.0",
+    "description": "一个可以携带和管理Cookie的Chrome扩展程序",
+    "permissions": [
+        "cookies",
+        "tabs",
+        "storage",
+        "activeTab",
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback"
+    ],
+    "host_permissions": ["<all_urls>"],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "rules",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
+    },
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": {
+            "16": "icons/icon.png",
+            "48": "icons/icon.png",
+            "128": "icons/icon.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "icons/icon.png",
+        "48": "icons/icon.png",
+        "128": "icons/icon.png"
+    }
+}
