@@ -23,8 +23,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             return true
         // 添加规则
         case 'addRule':
-            addRule(request.domain).them((success) => sendResponse({ success }))
-            return ture
+            addRule(request.domain).then((success) => sendResponse({ success }))
+            return true
         // 移除规则
         case 'removeRule':
             removeRule(request.domain).then((success) =>
@@ -291,7 +291,7 @@ chrome.cookies.onChanged.addListener(async (changeInfo) => {
     ])
     if (cookie && sharedDomainList.some((i) => i.includes(cookie.domain))) {
         const domain = await getCurrentTabDomain()
-        if (cookie.domain === domain) {
+        if (domain.includes(cookie.domain)) {
             await removeSharedCookies(cookie.domain)
         } else {
             await refreshShared()
